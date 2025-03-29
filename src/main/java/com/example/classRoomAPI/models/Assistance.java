@@ -1,30 +1,53 @@
 package com.example.classRoomAPI.models;
 
 import com.example.classRoomAPI.helpers.Status;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+//completado
+@Entity
+@Table(name = "Assistances")
 public class Assistance {
 
-    private Integer idAssistance;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Assistance")
+    private Integer id;
+
+    @Column(name = "date", nullable = false)
     private LocalDate date;
+
+    @Column(name = "status", nullable = false)
     private Status status;
+
+    //creando relacion(muchos a 1) con estudiantes
+    @ManyToOne
+    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JsonBackReference//la que tenga la many lleva jsonback
+    private Student student;
+
+    //creando relacion(muchos a 1) con cursos
+    @ManyToOne
+    @JoinColumn(name = "fk_course", referencedColumnName = "id")
+    @JsonBackReference//la que tenga la many lleva jsonback
+    private Course course;
 
     public Assistance() {
     }
 
-    public Assistance(Integer idAssistance, LocalDate date, Status status) {
-        this.idAssistance = idAssistance;
+    public Assistance(Integer id, LocalDate date, Status status) {
+        this.id = id;
         this.date = date;
         this.status = status;
     }
 
     public Integer getIdAssistance() {
-        return idAssistance;
+        return id;
     }
 
-    public void setIdAssistance(Integer idAssistance) {
-        this.idAssistance = idAssistance;
+    public void setIdAssistance(Integer id) {
+        this.id = id;
     }
 
     public LocalDate getDate() {
