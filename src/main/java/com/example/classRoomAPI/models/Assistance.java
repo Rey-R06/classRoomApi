@@ -65,4 +65,5 @@ public class Assistance {
     public void setStatus(Status status) {
         this.status = status;
     }
+    
 }
