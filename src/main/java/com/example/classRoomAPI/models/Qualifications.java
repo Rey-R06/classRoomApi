@@ -21,13 +21,13 @@ public class Qualifications {
 
     //creando relacion(muchos a 1) con estudiantes
     @ManyToOne
-    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonBackReference//la que tenga la many lleva jsonback
     private Student student;
 
     //creando relacion(muchos a 1) con materias
     @ManyToOne
-    @JoinColumn(name = "fk_subject", referencedColumnName = "id")
+    @JoinColumn(name = "fk_subject", referencedColumnName = "id_subject")
     @JsonBackReference//la que tenga la many lleva jsonback
     private Subjects subject;
 

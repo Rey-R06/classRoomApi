@@ -23,13 +23,13 @@ public class Assistance {
 
     //creando relacion(muchos a 1) con estudiantes
     @ManyToOne
-    @JoinColumn(name = "fk_student", referencedColumnName = "id")
+    @JoinColumn(name = "fk_student", referencedColumnName = "id_student")
     @JsonBackReference//la que tenga la many lleva jsonback
     private Student student;
 
     //creando relacion(muchos a 1) con cursos
     @ManyToOne
-    @JoinColumn(name = "fk_course", referencedColumnName = "id")
+    @JoinColumn(name = "fk_course", referencedColumnName = "id_course")
     @JsonBackReference//la que tenga la many lleva jsonback
     private Course course;
 

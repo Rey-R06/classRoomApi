@@ -20,8 +20,8 @@ public class Course {
     private String name;
 
     //creando relacion(muchos a 1)
-    @ManyToOne//la que tenga la many lleva jsonback
-    @JoinColumn(name = "fk_teacher", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "fk_teacher", referencedColumnName = "id_Teacher")
     @JsonBackReference
     private Teacher teacher;
 
@@ -53,4 +53,6 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+
 }
